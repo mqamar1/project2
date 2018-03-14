@@ -1,17 +1,17 @@
 # project2
 
-###Project Name
+#Project Name
 ##Description
 Social Media Journal
 
-###Key Features
+#Key Features
 ##Public Space
 ##Private Space
 ##Blog
 ##Registration
 ##Private Blog
 
-###Tech Used
+##Tech Used
 ##sequelize
 ##express
 ##handlebars (maybe)
@@ -21,9 +21,9 @@ Social Media Journal
 ##mardown
 ##lodash (maybe)
 
-###Architecture Diagram
+##Architecture Diagram
    ^
-_______
+_ _ _ _
 |     |
 |_____|
 
@@ -31,17 +31,17 @@ UI Mockups
 
 Mockup pictures go here...
 
-###API Docs
+##API Docs
 ##get
 ##post
 ##update
 ##delete
 
-###DB
+##DB
 ##usr => input => public/private
 
 ##Getting Started
 go to Journal
 
-##Team Members
-##
+#Team Members
+##BBAM
