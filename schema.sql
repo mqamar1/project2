@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS `bbam_db`;
+CREATE DATABASE `bbam_db`;
