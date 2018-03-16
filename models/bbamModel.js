@@ -8,15 +8,21 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 25]
       }
     },
-    body: {
-      type: DataTypes.TEXT,
+    passWord: {
+      type: DataTypes.STRING,
       len: [1, 140]
-    },
-    share: {
-      type: DataTypes.BOOLEAN
-
-    },
+    }
   });
 
+
+  User.associate = function(models) {
+    User.hasMany(models.EscapePost, {
+      onDelete: "cascade"
+    });
+  };
   return User;
 };
+
+
+
+// User table only Holds user name and password.
