@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Mike1212@",
+    "password": "",
     "database": "bbam_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
