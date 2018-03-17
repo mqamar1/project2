@@ -25,6 +25,7 @@
 
 
     $(document).ready(function() {
+
       // Gets an optional query string from our url (i.e. ?post_id=23)
       var url = window.location.search;
       var postId;
@@ -45,6 +46,7 @@
 
       // Adding an event listener for when the form is submitted
       $("#jsubmit").click(function handleFormSubmit(event) {
+
         console.log("hi");
 
         var titleInput = $("#jtitle");
@@ -70,7 +72,7 @@
         //
         console.log(newPost);
           submitPost(newPost);
-            console.log(newPost.shareStatus)
+            // console.log(newPost.shareStatus)
         // If we're updating a post run updatePost to update a post
         // Otherwise run submitPost to create a whole new post
       //   if (updating) {
@@ -88,6 +90,13 @@
       function submitPost(newPost) {
         $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
+
+          var row = $("<div>");
+            row.addClass("myjentry");
+            row.append("<p> Titile :" + newPost.title + "</p>");
+            // row.append("<p>" + newPost.journal_entry + "</p>");
+            $("#private-Jornalarea").prepend(row);
+
           alert("done")
         });
       }
