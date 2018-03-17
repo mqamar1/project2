@@ -11,6 +11,14 @@ module.exports = function(sequelize, DataTypes) {
     passWord: {
       type: DataTypes.STRING,
       len: [1, 140]
+    },
+    createdAt: {
+      type: DataTypes.DATE(3),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+    },
+    updatedAt: {
+      type: DataTypes.DATE(3),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
     }
   });
 
