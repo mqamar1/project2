@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var EscapePost = sequelize.define("EscapePost", {
+  var EscapePost = sequelize.define('EscapePost', {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,6 +15,15 @@ module.exports = function(sequelize, DataTypes) {
     share: {
       type: DataTypes.BOOLEAN
 
+    },
+
+    createdAt: {
+      type: DataTypes.DATE(3),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+    },
+    updatedAt: {
+      type: DataTypes.DATE(3),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
     }
   });
 
