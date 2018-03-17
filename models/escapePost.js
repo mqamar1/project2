@@ -10,18 +10,16 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       // len: [1]
     },
-    // share: {
-    //   type: DataTypes.BOOLEAN
-    //
-    // }
-  //    createdAt: {
-  //      type: DataTypes.DATE(3),
-  //      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
-  //    },
-  //    updatedAt: {
-  //      type: DataTypes.DATE(3),
-  //      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
-  // }
+    links_images: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+
+  },
+    share:{
+      type: DataTypes.BOOLEAN,
+
+    }
+
 });
 
   EscapePost.associate = function(models) {

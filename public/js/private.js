@@ -14,13 +14,13 @@
     var titleInput = $("#jtitle");
     var entryInput = $("#jentry");
     var linksInput = $("#jlink");
-    var shareStatus= $('input[name=rbnNumber]:checked').val();
+    var shareStatus= $('input[value]:checked').val();
 
     var newPost = {
       title: titleInput.val().trim(),
       journal_entry: entryInput.val().trim(),
       links_images: linksInput.val().trim(),
-      shareStatus:shareStatus
+      shareStatus:$('input[value]:checked').val()
     };
 
 
@@ -50,7 +50,7 @@
         var titleInput = $("#jtitle");
         var entryInput = $("#jentry");
         var linksInput = $("#jlink");
-        var shareStatus=$('input[name=Post]:checked').val();
+        var shareStatus=$('input[value]:checked').val()
         // event.preventDefault();
 
        //  var selValue = $('input[name=rbnNumber]:checked').val();
@@ -65,12 +65,12 @@
           title: titleInput.val().trim(),
           journal_entry: entryInput.val().trim(),
           links_images: linksInput.val().trim(),
-          shareStatus:shareStatus
+          shareStatus:$('input[value]:checked').val()
         };
         //
         console.log(newPost);
           submitPost(newPost);
-
+            console.log(newPost.shareStatus)
         // If we're updating a post run updatePost to update a post
         // Otherwise run submitPost to create a whole new post
       //   if (updating) {
