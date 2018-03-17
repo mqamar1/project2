@@ -25,26 +25,5 @@ module.exports = function(app) {
       });
   });
 
-  // app.post("/api/private", function(req, res) {
-  //   console.log("req.post", req.body);
-  //   db.entry.create({
-  //     title: req.body.title,
-  //     journal_entry: req.body.journal_entry,
-  //     links_images: req.body.links_images
-  //   })
-  //     .then(function(entry) {
-  //       res.json(entry);
-  //     });
-  // });
 
 }
-
-
-
-
-// .catch(function(err) {
-//   // Whenever a validation or flag fails, an error is thrown
-//   // We can "catch" the error to prevent it from being "thrown", which could crash our node app
-//     res.json(err);
-//   });
-// });
