@@ -2,28 +2,26 @@ module.exports = function(sequelize, DataTypes) {
   var EscapePost = sequelize.define('EscapePost', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
+      allowNull: false
+
     },
     journal_entry: {
       type: DataTypes.TEXT,
       allowNull: false,
-      len: [1]
+      // len: [1]
     },
-    share: {
-      type: DataTypes.BOOLEAN
-
-    },
-     createdAt: {
-       type: DataTypes.DATE(3),
-       defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
-     },
-     updatedAt: {
-       type: DataTypes.DATE(3),
-       defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
-  }
+    // share: {
+    //   type: DataTypes.BOOLEAN
+    //
+    // }
+  //    createdAt: {
+  //      type: DataTypes.DATE(3),
+  //      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+  //    },
+  //    updatedAt: {
+  //      type: DataTypes.DATE(3),
+  //      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3)'),
+  // }
 });
 
   EscapePost.associate = function(models) {
