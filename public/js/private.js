@@ -94,14 +94,27 @@
           var row = $("<div>");
             row.addClass("myjentry");
             row.append("<p> Titile :" + newPost.title + "</p>");
-            // row.append("<p>" + newPost.journal_entry + "</p>");
+          var deleteBtn = $("<button>");
+          deleteBtn.text("x");
+          deleteBtn.addClass("delete btn btn-danger");
+          var editBtn = $("<button>");
+          editBtn.text("EDIT");
+          editBtn.addClass("edit btn btn-default");
+            row.append(deleteBtn);
+            row.append(editBtn);
             $("#private-Jornalarea").prepend(row);
-
           alert("done")
         });
       }
 
-    //
+
+
+
+
+
+
+
+
     //   // Gets post data for a post if we're editing
       // function getPostData(id) {
       //   $.get("/api/posts/" + id, function(data) {
