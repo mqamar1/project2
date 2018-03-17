@@ -14,11 +14,12 @@ module.exports = function(app) {
 
   });
   app.post("/api/private", function(req, res) {
-    console.log("req.post", req.body.title, req.body.journal_entry);
+    console.log("req.post", req.body.title, req.body.journal_entry,req.body.share,req.body.links_images);
     db.EscapePost.create({
       title: req.body.title,
       journal_entry: req.body.journal_entry,
-      // links_images: req.body.links_images
+      share :req.body.shareStatus,
+      links_images: req.body.links_images
     })
       .then(function(entry) {
         res.json(entry);
