@@ -58,6 +58,7 @@
         };
         //
         console.log(newPost);
+          submitPost(newPost);
 
         // If we're updating a post run updatePost to update a post
         // Otherwise run submitPost to create a whole new post
@@ -73,13 +74,13 @@
 
 
     //   // Submits a new post
-      function submitPost(post) {
-        $.post("/api/private", post, function() {
+      function submitPost(newPost) {
+        $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
           alert("done")
         });
       }
-      submitPost(newPost);
+
     //
     //   // Gets post data for a post if we're editing
       // function getPostData(id) {
