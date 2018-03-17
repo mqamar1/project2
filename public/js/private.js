@@ -10,14 +10,17 @@
 //       };
 //       date_input.datepicker(options);
 //
-//     })
+// //     })
     var titleInput = $("#jtitle");
     var entryInput = $("#jentry");
     var linksInput = $("#jlink");
+    var shareStatus= $('input[name=rbnNumber]:checked').val();
+
     var newPost = {
       title: titleInput.val().trim(),
       journal_entry: entryInput.val().trim(),
       links_images: linksInput.val().trim(),
+      shareStatus:shareStatus
     };
 
 
@@ -35,16 +38,23 @@
       //   getPostData(postId);
       // }
 
+
+
       // Getting jQuery references to the post body, title, form, and category select
-      var titleInput = $("#jtitle");
-      var entryInput = $("#jentry");
-      var linksInput = $("#jlink");
 
 
       // Adding an event listener for when the form is submitted
       $("#jsubmit").click(function handleFormSubmit(event) {
         console.log("hi");
+
+        var titleInput = $("#jtitle");
+        var entryInput = $("#jentry");
+        var linksInput = $("#jlink");
+        var shareStatus=$('input[name=Post]:checked').val();
         // event.preventDefault();
+
+       //  var selValue = $('input[name=rbnNumber]:checked').val();
+       // console.log(selValue);
         //
         // // Wont submit the post if we are missing a body or a title
         // if (!titleInput.val().trim() || !journal_entryInput.val().trim()) {
@@ -55,6 +65,7 @@
           title: titleInput.val().trim(),
           journal_entry: entryInput.val().trim(),
           links_images: linksInput.val().trim(),
+          shareStatus:shareStatus
         };
         //
         console.log(newPost);
