@@ -10,7 +10,12 @@ module.exports = function(app) {
     // console.log(req)
     console.log(req)
     console.log(req.body)
-    db.EscapePost.findAll({}) //
+    db.EscapePost.findAll({
+      where: {
+        share: 1
+      }
+
+    }) //
       .then(function(dbPost) {
         res.json(dbPost);
       });
