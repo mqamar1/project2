@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "",
-    "database": "bbam_db",
+    "password": "mqamar0187",
+    "database": "journal_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

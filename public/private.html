@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   </script>
-  <link rel="stylesheet" href="../public/css/private.css">
+  <link rel="stylesheet" href="./css/private.css">
   <!-- datepicker -->
   <!--  jQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -34,49 +34,32 @@
     </div>
     <!-- date picker -->
 
-    <!-- <style>
-      .bootstrap-iso .formden_header h2,
-      .bootstrap-iso .formden_header p,
-      .bootstrap-iso form {
-        font-family: Arial, Helvetica, sans-serif;
-        color: black
-      }
 
-      .bootstrap-iso form button,
-      .bootstrap-iso form button:hover {
-        color: white !important;
-      }
 
-      .asteriskField {
-        color: red;
-      }
-    </style> -->
-
-    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-    <div class="bootstrap-iso">
-   <div class="container-fluid">
-    <div class="row">
-     <div class="col-md-6 col-sm-6 col-xs-12-push-10">
-      <form method="post">
-       <div class="form-group ">
-        <label class="control-label " for="date">
+    <!-- <div class="bootstrap-iso">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2 offset-sm-1">
+            <form method="post">
+              <div class="form-group">
+                <label class="control-label " for="date">
          Date
         </label>
-        <div class="input-group">
-         <div class="input-group-addon">
-          <i class="far fa-calendar-alt">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="far fa-calendar-alt">
           </i>
-         </div>
-         <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                  </div>
+                  <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+            </form>
+          </div>
         </div>
-       </div>
-       <div class="form-group">
-       </div>
-      </form>
-     </div>
-    </div>
-   </div>
-  </div>
+      </div>
+    </div> -->
 
 
     <!-- </div> -->
@@ -91,66 +74,43 @@
       <div class="col-md-8 offset-1">
 
         <div class="form">
-          <form>
+          <form id="private">
             <div class="form-group">
               <label for="exampleFormControlInput1" class="journaltitle">Title</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+              <input type="email" class="form-control" id="jtitle" placeholder="">
             </div>
-            <!-- <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div> -->
-            <!-- <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div> -->
             <div class="form-group">
               <label for="exampleFormControlTextarea1" class="journalentry">Journal Entry</label>
+              <textarea class="form-control" id="jentry" rows="3"></textarea>
+            </div>
+            <!-- <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="journalentry">Notes</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div> -->
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="journalentry">Links to Images</label>
+              <textarea class="form-control" id="jlink" rows="3"></textarea>
             </div>
           </form>
         </div>
       </div>
     </div>
+    <button type="button" class="btn btn-info upload colorbutton1" data-toggle="modal" data-target="#uploadModal" id="jsubmit">Submit</button>
   </container>
 
-
-
-
-
-  <button type="button" class="btn btn-info upload" data-toggle="modal" data-target="#uploadModal">Upload Images</button>
+  <button type="button" class="btn btn-info upload colorbutton" data-toggle="modal" data-target="#uploadModal"onclick="window.location.href='./public.html';">Make Public</button>
 
 
 
 
 
-  <!-- Modal -->
+  <!-- Modal
   <div id="uploadModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
-      <!-- Modal content-->
+      Modal content
       <div class="modal-content">
-        <!-- <div class="modal-header"> -->
-
-        <!-- <button type="button" class="btn btn-info" value='Close' data-dismiss="modal">&times;</button> -->
-
-        <!-- <h4 class="modal-title"></h4> -->
-        <!-- </div> -->
         <div class="modal-body">
-          <!-- Form -->
-          <!-- <div class="col-xs-12"> -->
           <div class="text-right">
             <form method='post' action='' enctype="multipart/form-data">
               <input type='file' name='file' id='file' class='form-control'>
@@ -158,16 +118,16 @@
             </form>
           </div>
 
-          <!-- </div> -->
+          </div>
 
-          <!-- Preview-->
+          Preview
           <div id='preview'></div>
         </div>
       </div>
 
     </div>
   </div>
-  <button type="button" class="btn btn-warning">Public</button>
+  <button type="button" class="btn btn-warning">Public</button> -->
 
   <!-- <div>
   <form method='post' action='' enctype="multipart/form-data" >

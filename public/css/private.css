@@ -35,13 +35,16 @@ body{
   font-size: 30px;
   font-weight: bold;
   color:#ECBF60;
+
+
 }
 
-.date{
+/* .date{
   font-size: 30px;
   font-weight: bold;
   color:#ECBF60;
-}
+  border: black;
+} */
 .bootstrap-iso .formden_header h2,
 .bootstrap-iso .formden_header p,
 .bootstrap-iso form {
@@ -56,4 +59,19 @@ body{
 
 .asteriskField {
   color: red;
+}
+
+.colorbutton{
+  background-color: #ECBF60;
+  border-width: thick;
+  border-color: black;
+}
+
+.colorbutton1{
+  background-color: #ECBF60;
+  border-width: thick;
+  border-color: black;
+  padding: 6px 18px;
+
+
 }
