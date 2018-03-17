@@ -6,9 +6,16 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the todos
-  app.get("/public", function(req, res) {
+  app.get("/api/public", function(req, res) {
     // console.log(req)
-    db.Post.findAll({}) //
+    console.log(req)
+    console.log(req.body)
+    db.EscapePost.findAll({
+      where: {
+        share: 1
+      }
+
+    }) //
       .then(function(dbPost) {
         res.json(dbPost);
       });
