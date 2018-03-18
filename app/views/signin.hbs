@@ -179,35 +179,13 @@
    <h5 class="modal-title" id="exampleModalLabel">Already have an account? Login If not Register</h5>
    <span aria-hidden="true">&times;</span>
 </div>
-  <form class="form-horizontal" role="form">
-     <div class="form-group">
-        <div class="col-sm-10">
-           <input type="email" class="form-control"
-              id="inputEmail3" placeholder="Email"/>
-        </div>
-     </div>
-     <div class="form-group">
-        <div class="col-sm-10">
-           <input type="password" class="form-control"
-              id="inputPassword3" placeholder="Password"/>
-        </div>
-     </div>
-     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-           <div class="checkbox">
-              <label>
-              <input type="checkbox"/> Remember me
-              </label>
-           </div>
-        </div>
-     </div>
-     <div class="form-group">
-     </div>
-     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary sign-in" data-dismiss="modal">Sign in</button>
-        <button type="button" class="btn btn-primary register">Register</button>
-     </div>
-  </form>
+<form id="signin" name="signin" method="post" action="signin">
+  <label for="email">Email Address</label>
+  <input class="text" name="email" type="text" />
+  <label for="password">Password</label>
+  <input name="password" type="password" />
+  <input class="btn" type="submit" value="Sign In" />
+</form>
 </div>
   </div>
 </div>
