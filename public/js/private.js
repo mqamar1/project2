@@ -47,12 +47,15 @@
       // Adding an event listener for when the form is submitted
       $("#jsubmit").click(function handleFormSubmit(event) {
 
+        
         console.log("hi");
 
         var titleInput = $("#jtitle");
         var entryInput = $("#jentry");
         var linksInput = $("#jlink");
         var shareStatus=$('input[value]:checked').val()
+
+        if (shareStatus == 0 || shareStatus == 1){
         // event.preventDefault();
 
        //  var selValue = $('input[name=rbnNumber]:checked').val();
@@ -69,9 +72,17 @@
           links_images: linksInput.val().trim(),
           shareStatus:$('input[value]:checked').val()
         };
+
         //
         console.log(newPost);
           submitPost(newPost);
+
+        } else{
+          alert ("Please select either public or private before submiting");
+        submitPost(newPost);
+        } 
+
+
             // console.log(newPost.shareStatus)
         // If we're updating a post run updatePost to update a post
         // Otherwise run submitPost to create a whole new post
