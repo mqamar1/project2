@@ -25,6 +25,7 @@
 
 
     $(document).ready(function() {
+
       // Gets an optional query string from our url (i.e. ?post_id=23)
       var url = window.location.search;
       var postId;
@@ -45,6 +46,7 @@
 
       // Adding an event listener for when the form is submitted
       $("#jsubmit").click(function handleFormSubmit(event) {
+
         console.log("hi");
 
         var titleInput = $("#jtitle");
@@ -70,7 +72,7 @@
         //
         console.log(newPost);
           submitPost(newPost);
-            console.log(newPost.shareStatus)
+            // console.log(newPost.shareStatus)
         // If we're updating a post run updatePost to update a post
         // Otherwise run submitPost to create a whole new post
       //   if (updating) {
@@ -88,11 +90,31 @@
       function submitPost(newPost) {
         $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
+
+          var row = $("<div>");
+            row.addClass("myjentry");
+            row.append("<p> Titile :" + newPost.title + "</p>");
+          var deleteBtn = $("<button>");
+          deleteBtn.text("x");
+          deleteBtn.addClass("delete btn btn-danger");
+          var editBtn = $("<button>");
+          editBtn.text("EDIT");
+          editBtn.addClass("edit btn btn-default");
+            row.append(deleteBtn);
+            row.append(editBtn);
+            $("#private-Jornalarea").prepend(row);
           alert("done")
         });
       }
 
-    //
+
+
+
+
+
+
+
+
     //   // Gets post data for a post if we're editing
       // function getPostData(id) {
       //   $.get("/api/posts/" + id, function(data) {
