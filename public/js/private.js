@@ -32,6 +32,9 @@
       // Sets a flag for whether or not we're updating a post to be false initially
       var updating = false;
 
+        // JornalgContainer holds all of our posts
+      var jornalContainer = $("#private-Jornalarea");
+
       // If we have this section in our url, we pull out the post id from the url
       // In localhost:8080/cms?post_id=1, postId is 1
       // if (url.indexOf("?post_id=") !== -1) {
@@ -47,7 +50,7 @@
       // Adding an event listener for when the form is submitted
       $("#jsubmit").click(function handleFormSubmit(event) {
 
-        
+
         console.log("hi");
 
         var titleInput = $("#jtitle");
@@ -66,21 +69,24 @@
         //   return;
         // }
         // // Constructing a newPost object to hand to the database
-        var newPost = {
+         newPost = {
           title: titleInput.val().trim(),
           journal_entry: entryInput.val().trim(),
           links_images: linksInput.val().trim(),
           shareStatus:$('input[value]:checked').val()
         };
 
-        //
-        console.log(newPost);
+
+        // console.log(newPost); // I am setting newPost = newPost because newPost was set as a global vaiable on line 19.
+        // after the onclick function is completed the value of the global var newPost will be the same..were updating the value
+        newPost = newPost
+
           submitPost(newPost);
 
         } else{
           alert ("Please select either public or private before submiting");
         submitPost(newPost);
-        } 
+        }
 
 
             // console.log(newPost.shareStatus)
@@ -97,31 +103,65 @@
 
 
 
-    //   // Submits a new post
+
+
+
+
+
+
       function submitPost(newPost) {
         $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
-
-          var row = $("<div>");
-            row.addClass("myjentry");
-            row.append("<p> Titile :" + newPost.title + "</p>");
-          var deleteBtn = $("<button>");
-          deleteBtn.text("x");
-          deleteBtn.addClass("delete btn btn-danger");
-          var editBtn = $("<button>");
-          editBtn.text("EDIT");
-          editBtn.addClass("edit btn btn-default");
-            row.append(deleteBtn);
-            row.append(editBtn);
-            $("#private-Jornalarea").prepend(row);
+          initalizeRow()
           alert("done")
         });
       }
 
 
 
+// create row function for every jornal that is created
+function initalizeRow(){
+  // jornalContainer.empty();
+   createNewRow(newPost)
+  var jornalsToAdd=[];
+    for (var i = 0; i < newPost.length; i++){
+      jornalsToAdd.push(createNewRow(newPost[i]));
+    }
+    jornalContainer.append(jornalsToAdd);
+}
 
 
+// customize row with dlt and edit button
+function createNewRow(newPost){
+  var row = $("<div>");
+  row.addClass("myjentry");
+    row.append("<p> Titile :" + newPost.title + "</p>");
+  var deleteBtn = $("<button>");
+  deleteBtn.text("x");
+  deleteBtn.addClass("delete btn btn-danger");
+  var editBtn = $("<button>");
+  editBtn.text("EDIT");
+  editBtn.addClass("edit btn btn-default");
+    row.append(deleteBtn);
+    row.append(editBtn);
+    jornalContainer.prepend(row);
+    return row;
+}
+
+
+
+
+
+      // // $("#theDelete").on("click",)
+      //
+      //       function deleted(event){
+      //       event.stopPropagation();
+      //         var id = $(this).data("id");
+      //         $.ajax({
+      //           method: "DELETE",
+      //           url: "api/private/:id"
+      //         }).then(data);
+      //       }
 
 
 
