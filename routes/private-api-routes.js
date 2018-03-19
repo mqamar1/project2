@@ -27,4 +27,37 @@ module.exports = function(app) {
   });
 
 
+
+
+
+    // 
+    //
+    // app.delete("api/private/:id", function(req, res){
+    //   db.EscapePost.destroy({
+    //     where:{
+    //       id: req.params.id
+    //     }
+    //
+    //   }).then(function(data){
+    //     res.json({
+    //       delete: "This has been deleted"
+    //     });
+    //   })
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
