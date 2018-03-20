@@ -26,6 +26,18 @@ module.exports = function(app) {
       });
   });
 
+   app.delete("/api/private/:id", function(req, res) {
+    // We just have to specify which todo we want to destroy with "where"
+    db.EscapePost.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbEscapePost) {
+      res.json(dbEscapePost);
+    });
+
+  });
+
 
 
 

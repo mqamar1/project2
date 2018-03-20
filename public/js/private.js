@@ -51,7 +51,7 @@
       $("#jsubmit").click(function handleFormSubmit(event) {
 
 
-        console.log("hi");
+
 
         var titleInput = $("#jtitle");
         var entryInput = $("#jentry");
@@ -59,16 +59,7 @@
         var shareStatus=$('input[value]:checked').val()
 
         if (shareStatus == 0 || shareStatus == 1){
-        // event.preventDefault();
-
-       //  var selValue = $('input[name=rbnNumber]:checked').val();
-       // console.log(selValue);
-        //
-        // // Wont submit the post if we are missing a body or a title
-        // if (!titleInput.val().trim() || !journal_entryInput.val().trim()) {
-        //   return;
-        // }
-        // // Constructing a newPost object to hand to the database
+        
          newPost = {
           title: titleInput.val().trim(),
           journal_entry: entryInput.val().trim(),
@@ -113,7 +104,7 @@
         $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
           initalizeRow()
-          alert("done")
+          
         });
       }
 
@@ -147,8 +138,23 @@ function createNewRow(newPost){
     jornalContainer.prepend(row);
     return row;
 }
+ var id = $(this);
+    console.log(id);
+
+$(document).on("click", "btn-danger", deletebutton);
+ 
 
 
+ function deletebutton(event) {
+    event.stopPropagation();
+    var id = $(this).data("id");
+    console.log(id);
+    $.ajax({
+      method: "DELETE",
+      url: "/api/private/" + id
+    }).then(dbEscapePost);
+      res.json(dbEscapePost);
+  }
 
 
 
