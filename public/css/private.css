@@ -3,7 +3,7 @@ body{
 }
 
 .title{
-  font-style: oblique;
+
   text-align: center;
   color:#774C15;
   font-size: 100px;
@@ -30,11 +30,21 @@ body{
 
 }
 
-.journaltitle ,.journalentry{
+.pp{
+   font-family: Cursive;
   padding-top: 30px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
-  color:#ECBF60;
+  color:purple;
+
+  }
+
+.journaltitle ,.journalentry{
+    font-family: Cursive;
+  padding-top: 30px;
+  font-size: 50px;
+  font-weight: bold;
+  color:purple;
 }
 
 .date{
