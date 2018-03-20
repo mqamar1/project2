@@ -1,8 +1,7 @@
-
 module.exports = function(sequelize, Sequelize) {
 
 	var User1 = sequelize.define('user1', {
-		id: { autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER},
+		id: { autoIncrement: true, type:Sequelize.INTEGER, primaryKey: true},
 		firstname: { type: Sequelize.STRING,notEmpty: true},
 		lastname: { type: Sequelize.STRING,notEmpty: true},
 		username: {type:Sequelize.TEXT},
@@ -15,5 +14,4 @@ module.exports = function(sequelize, Sequelize) {
 });
 
 	return User1;
-
-}
+};

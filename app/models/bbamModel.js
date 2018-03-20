@@ -23,17 +23,10 @@ module.exports = function(sequelize, DataTypes) {
   });
 
 
-  User.associate = function(models) {
-    User.hasMany(models.EscapePost, {
-      onDelete: "cascade"
-    });
-  };
+  // User.associate = function(models) {
+  //   User.hasMany(models.EscapePost, {
+  //     onDelete: "cascade"
+  //   });
+  // };
   return User;
 };
-
-
-
-// User table only Holds user name and password.
-
-
-// User table only Holds user name and password.

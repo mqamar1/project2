@@ -2,67 +2,6 @@
 <html>
 
 <head>
-  <style>
-  body{
-    background-image: url("journal.jpg")
-  }
-
-  .title{
-    font-style: oblique;
-    text-align: center;
-    color:#774C15;
-    font-size: 100px;
-    padding-bottom: 90px;
-    margin-top: -70px;
-
-
-  }
-
-  .jumbotron-fluid{
-    border-style: solid;
-    border-color:#774C15;
-    background-image: url("thoughts.png")
-
-
-  }
-
-  .control-label {
-    font-size: 20px;
-  }
-
-  .upload{
-    margin-left: 470px;
-
-  }
-
-  .journaltitle ,.journalentry{
-    padding-top: 30px;
-    font-size: 30px;
-    font-weight: bold;
-    color:#ECBF60;
-  }
-
-  .date{
-    font-size: 30px;
-    font-weight: bold;
-    color:#ECBF60;
-  }
-  .bootstrap-iso .formden_header h2,
-  .bootstrap-iso .formden_header p,
-  .bootstrap-iso form {
-    font-family: Arial, Helvetica, sans-serif;
-    color: black
-  }
-
-  .bootstrap-iso form button,
-  .bootstrap-iso form button:hover {
-    color: white !important;
-  }
-
-  .asteriskField {
-    color: red;
-  }
-</style>
   <meta charset="utf-8">
 
   <title>Private Escape</title>
@@ -72,10 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   </script>
-  <link rel="stylesheet" type="text/css" href="/app/assets/css/private.css">
+  <link rel="stylesheet" href="./css/private.css">
   <!-- datepicker -->
-
-  <!-- /Users/amanuel/Desktop/GWUB/week_15/day_1/project2/app/assets/css/private.css -->
   <!--  jQuery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -138,87 +75,9 @@
           <h3 class="card-header 2" id="private-Jornalarea"></h3>
         </div>
         </div>
-<!-- /Users/amanuel/Desktop/GWUB/week_15/day_1/project2/app/assets/js/private.js -->
+        
 
-  <!-- <script type="text/javascript" src="/assets/js/private.js"></script> -->
-<script type="text/javascript">
-
-var titleInput = $("#jtitle");
-var entryInput = $("#jentry");
-var linksInput = $("#jlink");
-var shareStatus= $('input[value]:checked').val();
-
-var newPost = {
-  title: titleInput.val().trim(),
-  journal_entry: entryInput.val().trim(),
-  links_images: linksInput.val().trim(),
-  shareStatus:$('input[value]:checked').val()
-};
-
-
-$(document).ready(function() {
-
-  var url = window.location.search;
-  var postId;
-  var updating = false;
-
-
-  $("#jsubmit").click(function handleFormSubmit(event) {
-
-
-    console.log("hi");
-
-    var titleInput = $("#jtitle");
-    var entryInput = $("#jentry");
-    var linksInput = $("#jlink");
-    var shareStatus=$('input[value]:checked').val()
-
-    if (shareStatus == 0 || shareStatus == 1){
-
-    var newPost = {
-      title: titleInput.val().trim(),
-      journal_entry: entryInput.val().trim(),
-      links_images: linksInput.val().trim(),
-      shareStatus:$('input[value]:checked').val()
-    };
-
-    //
-    console.log(newPost);
-      submitPost(newPost);
-
-    } else{
-      alert ("Please select either public or private before submiting");
-    submitPost(newPost);
-    }
-
-  });
-
-
-
-
-  function submitPost(newPost) {
-    $.post("/api/private", newPost, function() {
-      // window.location.href = "/private";
-
-      var row = $("<div>");
-        row.addClass("myjentry");
-        row.append("<p> Titile :" + newPost.title + "</p>");
-      var deleteBtn = $("<button>");
-      deleteBtn.text("x");
-      deleteBtn.addClass("delete btn btn-danger");
-      var editBtn = $("<button>");
-      editBtn.text("EDIT");
-      editBtn.addClass("edit btn btn-default");
-        row.append(deleteBtn);
-        row.append(editBtn);
-        $("#private-Jornalarea").prepend(row);
-      alert("done")
-    });
-  }
-});
-
-  </script>
-
+  <script type="text/javascript" src="./js/private.js"></script>
 </body>
 
 </html>

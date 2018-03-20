@@ -5,6 +5,7 @@ var session    = require('express-session')
 var bodyParser = require('body-parser')
 var env        = require('dotenv').load()
 var exphbs     = require('express-handlebars')
+// var usery = require('./app/controllers/authcontroller')
 
 
 
@@ -12,17 +13,21 @@ var exphbs     = require('express-handlebars')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// didnt work app.get('app/assets/css/private.css', function(req, res){ res.send('./app/assets/css/private.css'); res.end(); });
 
  // For Passport
 app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+app.use(passport.session());
+// console.log(usery.userID);
+ // persistent login sessions
 
 
  //For Handlebars
 app.set('views', './app/views')
 app.engine('hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
+// app.use(express.static(path.join(__dirname, 'app/assets')));
 
 
 app.get('/', function(req, res){
@@ -68,7 +73,7 @@ app.use(express.static("public"));
 // my routes in route folder
 require("./app/routes/private-api-routes.js")(app);
 require("./app/routes/public-api-routes.js")(app);
-require("./app/routes/html-routes.js")(app);
+// require("./app/routes/html-routes.js")(app);
 // do I need api for logIn - api route ?
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
