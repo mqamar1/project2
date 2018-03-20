@@ -3,8 +3,10 @@ var number;
 
 
 var i = 0;
-var txt = 'Public....Public....Public';
-var speed = 100;
+var txt = 'The Public Page';
+var speed = 500;
+
+
 
 function typeWriter() {
   if (i < txt.length) {
