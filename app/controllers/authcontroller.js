@@ -19,10 +19,17 @@ exports.dashboard = function(req,res){
 	res.render('dashboard')
 }
 
-exports.logout = function(req,res){
 
+exports.signout = function(req,res){
+
+	res.render('signout')
+}
+
+
+exports.logout = function(req,res){
+res.redirect('signout');
   req.session.destroy(function(err) {
-  res.redirect('/');
+  res.redirect('signout');
   });
 
 }
