@@ -15,7 +15,7 @@
     $(document).ready(function() {
 
   $(document).on("click", "button.delete", handlePostDelete);
-    // $(document).on("click", "button.edit", handlePostEdit);
+    $(document).on("click", "button.edit", handlePostEdit);
       // Gets an optional query string from our url (i.e. ?post_id=23)
       var url = window.location.search;
       var postId;
@@ -23,10 +23,11 @@
       var updating = false;
       var dataBackFromDb; // datacoming back from the db
 
+
         // JornalgContainer holds all of our posts
       var jornalContainer = $("#private-Jornalarea");
 
-      
+
 
       // Getting jQuery references to the post body, title, form, and category select
 
@@ -52,20 +53,20 @@
           shareStatus:$('input[value]:checked').val()
 
         };
-        console.log("NewPost 1 : ")
-        console.log(newPost)
+        // console.log("NewPost 1 : ")
+        // console.log(newPost)
         // console.log(newPost); // I am setting newPost = newPost because newPost was set as a global vaiable on line 19.
         // after the onclick function is completed the value of the global var newPost will be the same..were updating the value
-       
+
 
           submitPost(newPost);
-         
-         
-          
+
+
+
 
         } else{
           alert ("Please select either public or private before submiting");
-        
+
         }
 
 
@@ -102,11 +103,11 @@
       function getPosts(newPost) {
           $.get("/api/private", function(data) {
             dataBackFromDb = data;
-            console.log(dataBackFromDb)
+            // console.log(dataBackFromDb)
             // var dataBackFromDb = data.length;
                 // console.log(dataBackFromDb[0].title)
             // this is what is coming back from the database
-         
+
          initalizeRow(dataBackFromDb);
 
         });
@@ -116,9 +117,9 @@
 
 // create row function for every jornal that is created
 function initalizeRow(dataBackFromDb){
-  
-  
-  
+
+
+
   var jornalsToAdd=[];
     for (var i = 0; i < dataBackFromDb.length; i++){
       jornalsToAdd.push(createNewRow(dataBackFromDb[i]));
@@ -132,7 +133,7 @@ function initalizeRow(dataBackFromDb){
 // customize row with dlt and edit button
 function createNewRow(dataBackFromDb){
   // console.log(newPost)
-  console.log("Data back from db")
+  // console.log("Data back from db")
   console.log(dataBackFromDb)
   var row = $("<div>");
   row.addClass("myjentry");
@@ -146,6 +147,8 @@ function createNewRow(dataBackFromDb){
   var editBtn = $("<button>");
   editBtn.text("EDIT");
   editBtn.addClass("edit btn btn-default");
+  editBtn.attr("entryID", dataBackFromDb.id);
+  console.log('Edit with ID', editBtn)
     row.append(deleteBtn);
     row.append(editBtn);
     // row.data("dataBackFromDb", dataBackFromDb);
@@ -165,9 +168,6 @@ function handlePostDelete() {
   console.log("currentId", currentId)
   // console.log("CURRENT POST IS BELOW")
   // console.log(currentId)
-    // .parent()
-    // .parent()
-    // window.location.href ="api/private/:id";
   deletePost(currentId);
 }
 
@@ -190,29 +190,63 @@ function deletePost(id) {
 
 // This function figures out which post we want to edit and takes it to the
 // // Appropriate url
-// function handlePostEdit() {
-//   var currentPost = $(this)
-//   alert("Edit button is clicked")
-//   //   .parent()
-//   //   .parent()
-//   //   .data("post");
-//   // window.location.href = "/cms?post_id=" + currentPost.id;
-// }
+// do a check here -- does Id excist
+function handlePostEdit() {
+  var currentId = $(this).attr("entryID")
+  console.log(currentId)
+    // .parent()
+    // .parent()
+    // .data("post");
+  window.location.href = "api/private/" + currentId;
+    updatePost(currentId);
+}
 
 
+
+// console.log(currentId)
 
 
 // Update a given post, bring user to the blog page when done
-// function updatePost(post) {
-//   $.ajax({
-//     method: "PUT",
-//     url: "/api/private",
-//     data: newPost
-//   })
-//     .then(function() {
-//       window.location.href = "/private";
-//     });
-// }
+function updatePost(id) {
+  console.log(id)
+  $.ajax({
+    method: "PUT",
+    url: "api/private/" + id,
+    data: newPost
+  })
+    .then(function() {
+      window.location.href = "/private" ;
+    });
+}
+
+
+
+
+
+
+// Gets post data for a post if we're editing
+function getPostData(id) {
+  $.get("/api/private/" + id, function(data) {
+    if (data) {
+      // If this post exists, prefill our cms forms with its data
+      // titleInput.val(data.title);
+      // bodyInput.val(data.body);
+      // postCategorySelect.val(data.category);
+      // If we have a post with this id, set a flag for us to know to update the post
+      // when we hit submit
+      updating = true;
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
 
 
 
