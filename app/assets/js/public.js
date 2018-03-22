@@ -1,5 +1,22 @@
 var number;
 
+
+
+var i = 0;
+var txt = 'The Public Page';
+var speed = 500;
+
+
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("typethis").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+
   function getpublicinfo(id) {
     $.get("/api/public", function(data) {
     if (data) {
@@ -62,4 +79,5 @@ var number;
 
     });
 
+  typeWriter();  
   getpublicinfo();
