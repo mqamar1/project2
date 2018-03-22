@@ -1,15 +1,15 @@
 
-    var titleInput = $("#jtitle");
-    var entryInput = $("#jentry");
-    var linksInput = $("#jlink");
-    var shareStatus= $('input[value]:checked').val();
+    // var titleInput = $("#jtitle");
+    // var entryInput = $("#jentry");
+    // var linksInput = $("#jlink");
+    // var shareStatus= $('input[value]:checked').val();
 
-    var newPost = {
-      title: titleInput.val().trim(),
-      journal_entry: entryInput.val().trim(),
-      links_images: linksInput.val().trim(),
-      shareStatus:$('input[value]:checked').val()
-    };
+    // var newPost = {
+    //   title: titleInput.val().trim(),
+    //   journal_entry: entryInput.val().trim(),
+    //   links_images: linksInput.val().trim(),
+    //   shareStatus:$('input[value]:checked').val()
+    // };
 
 
     $(document).ready(function() {
@@ -26,7 +26,7 @@
         // JornalgContainer holds all of our posts
       var jornalContainer = $("#private-Jornalarea");
 
-      getPosts();
+      
 
       // Getting jQuery references to the post body, title, form, and category select
 
@@ -56,15 +56,16 @@
         console.log(newPost)
         // console.log(newPost); // I am setting newPost = newPost because newPost was set as a global vaiable on line 19.
         // after the onclick function is completed the value of the global var newPost will be the same..were updating the value
-        newPost = newPost
-        console.log("NewPost 2 : ")
-        console.log(newPost)
+       
 
           submitPost(newPost);
+         
+         
+          
 
         } else{
           alert ("Please select either public or private before submiting");
-        submitPost(newPost);
+        
         }
 
 
@@ -86,7 +87,7 @@
       function submitPost(newPost) {
         $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
-          initalizeRow()
+          getPosts();
 
           alert("done")
         });
@@ -105,20 +106,25 @@
             // var dataBackFromDb = data.length;
                 // console.log(dataBackFromDb[0].title)
             // this is what is coming back from the database
+         
+         initalizeRow(dataBackFromDb);
+
         });
       }
 
       //
 
 // create row function for every jornal that is created
-function initalizeRow(){
-  // jornalContainer.empty();
-  getPosts();
-  createNewRow(dataBackFromDb)
+function initalizeRow(dataBackFromDb){
+  
+  
+  
   var jornalsToAdd=[];
     for (var i = 0; i < dataBackFromDb.length; i++){
       jornalsToAdd.push(createNewRow(dataBackFromDb[i]));
+
     }
+    jornalContainer.empty();
     jornalContainer.append(jornalsToAdd);
 }
 
@@ -143,7 +149,7 @@ function createNewRow(dataBackFromDb){
     row.append(deleteBtn);
     row.append(editBtn);
     // row.data("dataBackFromDb", dataBackFromDb);
-    jornalContainer.prepend(row);
+    jornalContainer.append(row);
 
     return row;
 }
