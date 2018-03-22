@@ -22,14 +22,16 @@
       // Sets a flag for whether or not we're updating a post to be false initially
       var updating = false;
       var dataBackFromDb; // datacoming back from the db
-
-
-        // JornalgContainer holds all of our posts
+      // JornalgContainer holds all of our posts
       var jornalContainer = $("#private-Jornalarea");
 
+      if (url.indexOf("?post_id=") !== -1) {
+        postId = url.split("=")[1];
+        getPostData(postId);
+      }
 
 
-      // Getting jQuery references to the post body, title, form, and category select
+
 
 
       // Adding an event listener for when the form is submitted
@@ -228,10 +230,12 @@ function updatePost(id) {
 function getPostData(id) {
   $.get("/api/private/" + id, function(data) {
     if (data) {
+      console.log(data)
       // If this post exists, prefill our cms forms with its data
-      // titleInput.val(data.title);
-      // bodyInput.val(data.body);
-      // postCategorySelect.val(data.category);
+      // titleInput.val(data.titleInput);
+      // entryInput.val(data.entryInput);
+      // linksInput.val(data.linksInput);
+      // shareStatus.val(data.shareStatus);
       // If we have a post with this id, set a flag for us to know to update the post
       // when we hit submit
       updating = true;
@@ -245,7 +249,11 @@ function getPostData(id) {
 
 
 
-
+        //
+        // var titleInput = $("#jtitle");
+        // var entryInput = $("#jentry");
+        // var linksInput = $("#jlink");
+        // var shareStatus=$('input[value]:checked').val()
 
 
 
