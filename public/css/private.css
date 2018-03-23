@@ -5,7 +5,7 @@ body{
 .title{
 
   text-align: center;
-  color:#774C15;
+  color:purple;
   font-size: 100px;
   padding-bottom: 90px;
   margin-top: -70px;
@@ -27,13 +27,12 @@ body{
 
 .upload{
   margin-left: 470px;
-
 }
 
 .pp{
    font-family: Cursive;
   padding-top: 30px;
-  font-size: 25px;
+  font-size: 50px;
   font-weight: bold;
   color:purple;
 
@@ -47,11 +46,7 @@ body{
   color:purple;
 }
 
-.date{
-  font-size: 30px;
-  font-weight: bold;
-  color:#ECBF60;
-}
+
 .bootstrap-iso .formden_header h2,
 .bootstrap-iso .formden_header p,
 .bootstrap-iso form {
@@ -66,4 +61,10 @@ body{
 
 .asteriskField {
   color: red;
+}
+
+.colorbutton1{
+  background-color:#774C15;
+  border-color: purple;
+  padding: 20px, 20px;
 }
