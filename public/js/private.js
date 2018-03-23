@@ -32,45 +32,65 @@
 
 
 
+              var titleInput = $("#jtitle");
+              var entryInput = $("#jentry");
+              var linksInput = $("#jlink");
+              var shareStatus=$('input[value]:checked').val()
 
 
       // Adding an event listener for when the form is submitted
       $("#jsubmit").click(function handleFormSubmit(event) {
-
+        event.preventDefault();
 
         // console.log("hi");
+        if (!titleInput.val().trim() || !entryInput.val().trim()) {
+          return;
+            }
 
-        var titleInput = $("#jtitle");
-        var entryInput = $("#jentry");
-        var linksInput = $("#jlink");
-        var shareStatus=$('input[value]:checked').val()
+            var   //===========================================
+                   newPost = {
+                    title: titleInput.val().trim(),
+                    journal_entry: entryInput.val().trim(),
+                    links_images: linksInput.val().trim(),
+                    shareStatus:$('input[value]:checked').val()
 
-        if (shareStatus == 0 || shareStatus == 1){
+                  };
+                  console.log(newPost);
 
-    //===========================================
-         newPost = {
-          title: titleInput.val().trim(),
-          journal_entry: entryInput.val().trim(),
-          links_images: linksInput.val().trim(),
-          shareStatus:$('input[value]:checked').val()
+        // if (shareStatus == 0 || shareStatus == 1){
 
-        };
+    // //===========================================
+    //      newPost = {
+    //       title: titleInput.val().trim(),
+    //       journal_entry: entryInput.val().trim(),
+    //       links_images: linksInput.val().trim(),
+    //       shareStatus:$('input[value]:checked').val()
+    //
+    //     };
         // console.log("NewPost 1 : ")
         // console.log(newPost)
         // console.log(newPost); // I am setting newPost = newPost because newPost was set as a global vaiable on line 19.
         // after the onclick function is completed the value of the global var newPost will be the same..were updating the value
 
 
-          submitPost(newPost);
+          // submitPost(newPost);
 
 
 
-
-        } else{
-          alert ("Please select either public or private before submiting");
-
-        }
-
+        //
+        // } else{
+        //   alert ("Please select either public or private before submiting");
+        //
+        // }
+        if (updating) {
+              newPost.id = postId;
+              updatePost(postId, newPost);
+                console.log("Updating - A" ,updating)
+            }
+            else {
+              submitPost(newPost);
+                console.log("Updating - B " ,updating)
+            }
 
             // console.log(newPost.shareStatus)
         // If we're updating a post run updatePost to update a post
@@ -83,8 +103,7 @@
       //     submitPost(newPost);
       //   }
       });
-
-
+///===================================================
 
 
       function submitPost(newPost) {
@@ -136,7 +155,7 @@ function initalizeRow(dataBackFromDb){
 function createNewRow(dataBackFromDb){
   // console.log(newPost)
   // console.log("Data back from db")
-  console.log(dataBackFromDb)
+  // console.log(dataBackFromDb)
   var row = $("<div>");
   row.addClass("myjentry");
   row.append("<p> Titile :" + dataBackFromDb.title + "</p>");
@@ -145,12 +164,12 @@ function createNewRow(dataBackFromDb){
   deleteBtn.text("x");
   deleteBtn.addClass("delete btn btn-danger");
   deleteBtn.attr("entryID", dataBackFromDb.id);
-  console.log('deleteBtn with ID', deleteBtn)
+  // console.log('deleteBtn with ID', deleteBtn)
   var editBtn = $("<button>");
   editBtn.text("EDIT");
   editBtn.addClass("edit btn btn-default");
   editBtn.attr("entryID", dataBackFromDb.id);
-  console.log('Edit with ID', editBtn)
+  // console.log('Edit with ID', editBtn)
     row.append(deleteBtn);
     row.append(editBtn);
     // row.data("dataBackFromDb", dataBackFromDb);
@@ -165,9 +184,9 @@ function createNewRow(dataBackFromDb){
 ///--------------????? what goes in the ()
 function handlePostDelete() {
   // console.log(escapeposts)
-  console.log("DELETE button is clicked")
+  // console.log("DELETE button is clicked")
   var currentId = $(this).attr("entryID");
-  console.log("currentId", currentId)
+  // console.log("currentId", currentId)
   // console.log("CURRENT POST IS BELOW")
   // console.log(currentId)
   deletePost(currentId);
@@ -184,7 +203,7 @@ function deletePost(id) {
   })
     .then(function() {
       getPosts()// show me posts after deleting
-      console.log("sending info to Db to delet this item and show updated page")
+      // console.log("sending info to Db to delet this item and show updated page")
     });
 }
 
@@ -195,12 +214,12 @@ function deletePost(id) {
 // do a check here -- does Id excist
 function handlePostEdit() {
   var currentId = $(this).attr("entryID")
-  console.log(currentId)
+  // console.log(currentId)
     // .parent()
     // .parent()
     // .data("post");
-  window.location.href = "api/private/" + currentId;
-    updatePost(currentId);
+  window.location.href = "/private?post_id=" + currentId;
+    updatePost(currentId, newPost);
 }
 
 
@@ -209,11 +228,12 @@ function handlePostEdit() {
 
 
 // Update a given post, bring user to the blog page when done
-function updatePost(id) {
-  console.log(id)
+function updatePost(id,newPost ) {
+  // console.log(id)
+    // console.log("Updating - updatePost" updating)
   $.ajax({
     method: "PUT",
-    url: "api/private/" + id,
+    url: "/api/private/",
     data: newPost
   })
     .then(function() {
@@ -231,14 +251,17 @@ function getPostData(id) {
   $.get("/api/private/" + id, function(data) {
     if (data) {
       console.log(data)
+
       // If this post exists, prefill our cms forms with its data
-      // titleInput.val(data.titleInput);
-      // entryInput.val(data.entryInput);
-      // linksInput.val(data.linksInput);
+      titleInput.val(data.titleInput);
+      entryInput.val(data.entryInput);
+      linksInput.val(data.linksInput);
       // shareStatus.val(data.shareStatus);
       // If we have a post with this id, set a flag for us to know to update the post
       // when we hit submit
       updating = true;
+      console.log("Updating - getPost Data" ,updating)
+
     }
   });
 }

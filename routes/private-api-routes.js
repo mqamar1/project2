@@ -61,7 +61,18 @@ app.put("/api/private", function(req, res) {
 
 
 
+app.get("/api/private/:id", function(req, res) {
+  db.EscapePost.findOne({ // to get a specific ID - JUST ONE ID AND GIVES U BACK ONE OBJEC
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(function(data) {
+      res.json(data);
+    });
 
+
+});
 
 
 
