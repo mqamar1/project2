@@ -45,6 +45,7 @@
         var linksInput = $("#jlink");
         var shareStatus=$('input[value]:checked').val()
 
+
         if (shareStatus == 0 || shareStatus == 1){
 
     //===========================================
@@ -64,13 +65,10 @@
           submitPost(newPost);
 
 
-
-
         } else{
           alert ("Please select either public or private before submiting");
 
         }
-
 
             // console.log(newPost.shareStatus)
         // If we're updating a post run updatePost to update a post
@@ -136,7 +134,7 @@ function initalizeRow(dataBackFromDb){
 function createNewRow(dataBackFromDb){
   // console.log(newPost)
   // console.log("Data back from db")
-  console.log(dataBackFromDb)
+  // console.log(dataBackFromDb)
   var row = $("<div>");
   row.addClass("myjentry");
   row.append("<p> Titile :" + dataBackFromDb.title + "</p>");
@@ -145,12 +143,12 @@ function createNewRow(dataBackFromDb){
   deleteBtn.text("x");
   deleteBtn.addClass("delete btn btn-danger");
   deleteBtn.attr("entryID", dataBackFromDb.id);
-  console.log('deleteBtn with ID', deleteBtn)
+  // console.log('deleteBtn with ID', deleteBtn)
   var editBtn = $("<button>");
   editBtn.text("EDIT");
   editBtn.addClass("edit btn btn-default");
   editBtn.attr("entryID", dataBackFromDb.id);
-  console.log('Edit with ID', editBtn)
+  // console.log('Edit with ID', editBtn)
     row.append(deleteBtn);
     row.append(editBtn);
     // row.data("dataBackFromDb", dataBackFromDb);
@@ -165,9 +163,9 @@ function createNewRow(dataBackFromDb){
 ///--------------????? what goes in the ()
 function handlePostDelete() {
   // console.log(escapeposts)
-  console.log("DELETE button is clicked")
+  // console.log("DELETE button is clicked")
   var currentId = $(this).attr("entryID");
-  console.log("currentId", currentId)
+  // console.log("currentId", currentId)
   // console.log("CURRENT POST IS BELOW")
   // console.log(currentId)
   deletePost(currentId);
@@ -184,7 +182,7 @@ function deletePost(id) {
   })
     .then(function() {
       getPosts()// show me posts after deleting
-      console.log("sending info to Db to delet this item and show updated page")
+      // console.log("sending info to Db to delet this item and show updated page")
     });
 }
 
@@ -195,11 +193,11 @@ function deletePost(id) {
 // do a check here -- does Id excist
 function handlePostEdit() {
   var currentId = $(this).attr("entryID")
-  console.log(currentId)
+  // console.log(currentId)
     // .parent()
     // .parent()
     // .data("post");
-  window.location.href = "api/private/" + currentId;
+  window.location.href = "/private?post_id=" + currentId;
     updatePost(currentId);
 }
 
@@ -210,10 +208,10 @@ function handlePostEdit() {
 
 // Update a given post, bring user to the blog page when done
 function updatePost(id) {
-  console.log(id)
+  // console.log(id)
   $.ajax({
     method: "PUT",
-    url: "api/private/" + id,
+    url: "/api/private/",
     data: newPost
   })
     .then(function() {
@@ -231,11 +229,12 @@ function getPostData(id) {
   $.get("/api/private/" + id, function(data) {
     if (data) {
       console.log(data)
+
       // If this post exists, prefill our cms forms with its data
-      // titleInput.val(data.titleInput);
-      // entryInput.val(data.entryInput);
-      // linksInput.val(data.linksInput);
-      // shareStatus.val(data.shareStatus);
+      titleInput.val(data.titleInput);
+      entryInput.val(data.entryInput);
+      linksInput.val(data.linksInput);
+      shareStatus.val(data.shareStatus);
       // If we have a post with this id, set a flag for us to know to update the post
       // when we hit submit
       updating = true;
