@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
 
     },
-    user1Id:{
+    userId:{
       type: DataTypes.INTEGER
     }
 

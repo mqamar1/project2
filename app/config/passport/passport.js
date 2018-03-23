@@ -29,14 +29,14 @@
 
   passport.use('local-signup', new LocalStrategy(
 
-    {           
+    {
       usernameField : 'email',
       passwordField : 'password',
       passReqToCallback : true // allows us to pass back the entire request to the callback
     },
 
     function(req, email, password, done){
-       
+
 
       var generateHash = function(password) {
       return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
@@ -67,7 +67,7 @@
 
           if(newUser){
             return done(null,newUser);
-            
+
           }
 
 
@@ -75,7 +75,7 @@
       }
 
 
-    }); 
+    });
 
 
 
@@ -84,10 +84,10 @@
 
 
   ));
-    
+
   //LOCAL SIGNIN
   passport.use('local-signin', new LocalStrategy(
-    
+
   {
 
   // by default, local strategy uses username and password, we will override with email
@@ -133,4 +133,3 @@
   ));
 
   }
-

@@ -55,10 +55,10 @@
           shareStatus:$('input[value]:checked').val()
 
         };
-        // console.log("NewPost 1 : ")
-        // console.log(newPost)
-        // console.log(newPost); // I am setting newPost = newPost because newPost was set as a global vaiable on line 19.
-        // after the onclick function is completed the value of the global var newPost will be the same..were updating the value
+        console.log("NewPost 1 : ")
+        console.log(newPost)
+        console.log(newPost); // I am setting newPost = newPost because newPost was set as a global vaiable on line 19.
+  //      after the onclick function is completed the value of the global var newPost will be the same..were updating the value
 
 
           submitPost(newPost);

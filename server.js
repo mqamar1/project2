@@ -27,7 +27,7 @@ app.use(passport.session());
 app.set('views', './app/views')
 app.engine('hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
-// app.use(express.static(path.join(__dirname, 'app/assets')));
+app.use(express.static('public'));
 
 
 app.get('/', function(req, res){
