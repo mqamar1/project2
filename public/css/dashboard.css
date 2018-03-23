@@ -1,0 +1,112 @@
+html {
+font-family: sans-serif;
+}
+
+form {
+width: 600px;
+background: #ccc;
+margin: 0 auto;
+padding: 20px;
+border: 1px solid black;
+}
+
+form ol {
+padding-left: 0;
+}
+
+form li, div > p {
+background: #eee;
+display: flex;
+justify-content: space-between;
+margin-bottom: 10px;
+list-style-type: none;
+border: 1px solid black;
+}
+
+form img {
+height: 64px;
+order: 1;
+}
+
+form p {
+line-height: 32px;
+padding-left: 10px;
+}
+
+form label, form button {
+background-color: #7F9CCB;
+padding: 5px 10px;
+border-radius: 5px;
+border: 1px ridge black;
+font-size: 0.8rem;
+height: auto;
+}
+
+form label:hover, form button:hover {
+background-color: #2D5BA3;
+color: white;
+}
+
+form label:active, form button:active {
+background-color: #0D3F8F;
+color: white;
+}
+body{
+  background-image: url("journal.jpg")
+}
+
+.title{
+  font-style: oblique;
+  text-align: center;
+  color:#774C15;
+  font-size: 100px;
+  padding-bottom: 90px;
+  margin-top: -70px;
+
+
+}
+
+.jumbotron-fluid{
+  border-style: solid;
+  border-color:#774C15;
+  background-image: url("thoughts.png")
+
+
+}
+
+.control-label {
+  font-size: 20px;
+}
+
+.upload{
+  margin-left: 470px;
+
+}
+
+.journaltitle ,.journalentry{
+  padding-top: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  color:#ECBF60;
+}
+
+.date{
+  font-size: 30px;
+  font-weight: bold;
+  color:#ECBF60;
+}
+.bootstrap-iso .formden_header h2,
+.bootstrap-iso .formden_header p,
+.bootstrap-iso form {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black
+}
+
+.bootstrap-iso form button,
+.bootstrap-iso form button:hover {
+  color: white !important;
+}
+
+.asteriskField {
+  color: red;
+}

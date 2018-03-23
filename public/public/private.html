@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Private Escape</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  </script>
+  <link rel="stylesheet" href="./css/private.css">
+  <!-- datepicker -->
+  <!--  jQuery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+  <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+  <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+  <container>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+
+        <h1 class="title">Private Escape</h1>
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8 offset-1">
+
+        <div class="form">
+          <form id="private">
+            <div class="form-group">
+              <label for="exampleFormControlInput1" class="journaltitle">Title</label>
+              <input type="" class="form-control" id="jtitle" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="journalentry">Journal Entry</label>
+              <textarea class="form-control" id="jentry" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1" class="journalentry">Links to Images</label>
+              <textarea class="form-control" id="jlink" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+      <div class="form-group pp">
+        <label for="sleepy">Post to private or Post to Public?</label><br>
+        <input type="radio" name="Post" value= 0 /> Private Post!<br/>
+        <input type="radio" name="Post" value= 1 /> Public <br/>
+      </div>
+
+
+    <button type="button" class="btn btn-info upload colorbutton1" data-toggle="modal" data-target="#uploadModal" id="jsubmit">Submit</button>
+  </container>
+
+        <div class="col-12 box">
+          <div class="card mb-3">
+          <h3 class="card-header 2" id="private-Jornalarea"></h3>
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="./js/private.js"></script>
+</body>
+
+</html>

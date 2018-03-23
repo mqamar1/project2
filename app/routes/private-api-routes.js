@@ -14,11 +14,8 @@ module.exports = function(app) {
 
   });
   app.post("/api/private", function(req, res) {
-    // console.log("req.post", req.body.title, req.body.journal_entry,req.body.share,req.body.links_images);
-      // console.log(req.body)
-      console.log(res)
-      // console.log(req.params)
     db.EscapePost.create({
+      user1Id: req.user.id,
       title: req.body.title,
       journal_entry: req.body.journal_entry,
       share :req.body.shareStatus,
