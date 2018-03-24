@@ -23,11 +23,12 @@ function typeWriter() {
 
         function ranum (){
            var dbsize = data.length;
+           console.log(data.length, 'a')
            number = Math.floor(Math.random() * dbsize);
            console.log(number)
            return (number);
            }
-          
+
       ranum();
        $('.1').html(data[number].title);
        $('.text1').html(data[number].img);
@@ -52,9 +53,9 @@ function typeWriter() {
        ranum();
        $('.9').html(data[number].title);
        $('.text9').html(data[number].img);
-       
-        
-    
+
+
+
       }
     });
   }
@@ -79,5 +80,5 @@ function typeWriter() {
 
     });
 
-  typeWriter();  
+  typeWriter();
   getpublicinfo();
