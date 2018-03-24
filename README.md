@@ -25,33 +25,33 @@
 ##Tech Used
 
 
-##sequelize
-##express
-##handlebars
-##heroku
-##HTML
-##css
-##mardown
-##lodash (maybe)
-##link:Mysql
-##Mysql2
-##link:Sequelize
-##link:Express-handlebars
-##Body-parser
-##bcrypt-nodejs
-##passport
-##passport-local
-##Node.js
-##Express.js
-##Bootstrap
-##HTML
-##Javascript
-##jQuery
-##CSS
+- sequelize
+- express
+- handlebars
+- heroku
+- HTML
+- css
+- mardown
+- lodash (maybe)
+- link:Mysql
+- Mysql2
+- link:Sequelize
+- link:Express-handlebars
+- Body-parser
+- bcrypt-nodejs
+- passport
+- passport-local
+- Node.js
+- Express.js
+- Bootstrap
+- HTML
+- Javascript
+- jQuery
+- CSS
 
 
 
-##Architecture Diagram
+##Architecture Diagram - MVC
 
 ```
 ├── app
@@ -88,7 +88,10 @@
 |  └── js
 |
 ├── package.json
+├── .gitignore
 ├── package-lock.json
+├── README.md
+├── schema.sql
 └── server.js
 ```
 
