@@ -44,6 +44,7 @@ module.exports = function(app) {
 
 //
 app.put("/api/private", function(req, res) {
+  console.log(req)
   db.EscapePost.update(req.body,
     {
       where: {
