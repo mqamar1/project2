@@ -13,6 +13,7 @@
 
 
     $(document).ready(function() {
+          getPosts();
 
   $(document).on("click", "button.delete", handlePostDelete);
     $(document).on("click", "button.edit", handlePostEdit);
@@ -109,7 +110,7 @@
       function submitPost(newPost) {
         $.post("/api/private", newPost, function() {
           // window.location.href = "/private";
-          getPosts();
+
 
           alert("done")
         });
