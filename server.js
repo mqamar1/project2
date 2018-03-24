@@ -30,11 +30,6 @@ app.set('view engine', '.hbs');
 app.use(express.static('public'));
 
 
-app.get('/', function(req, res){
-res.send('Welcome to Passport with Sequelize');
-});
-
-
 //Models
 var models = require("./app/models");
 

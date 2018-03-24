@@ -10,7 +10,8 @@ app.get('/logIn', authController.signin);
 
 app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/signout',
                                                     failureRedirect: '/logout'}
-                                                  ));
+                                        ));
+app.get('/', authController.signin);
 
 app.get('/dashboard',isLoggedIn, authController.dashboard);
 
