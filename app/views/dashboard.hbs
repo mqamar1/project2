@@ -28,6 +28,12 @@
       <div class="jumbotron jumbotron-fluid">
 
         <h1 class="title">Private Escape</h1>
+        <button id="logout" type="button" class="btn btn-primary" >
+          Logout
+        </button>
+        <button id="home" type="button" class="btn btn-primary" >
+          Public Page
+        </button>
 
       </div>
 
@@ -103,6 +109,40 @@
 
 
   <script type="text/javascript" src="./js/private.js"></script>
+<script>
+   // This "document.ready" code isn't necessary in this example... but is useful to become familiar with.
+   // "document.ready" makes sure that our JavaScript doesn't get run until the HTML document is finished loading.
+
+   $(document).ready(function() {
+     $("#logout").on("click", function() {
+
+
+
+
+       $.get("/login", function(data){
+         window.location.href = "/login";
+         console.log('hh1')
+
+       })
+
+ });
+ $("#home").on("click", function() {
+
+
+
+
+   $.get("/signout", function(data){
+     window.location.href = "/signout";
+     console.log('hh1')
+
+   })
+
+});
+
+
+
+});
+</script>
 </body>
 
 </html>
