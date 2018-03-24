@@ -1,7 +1,19 @@
 #    :scroll: BBAM :scroll:
 
-### A free online diary and personal journal focused on privacy. Easily keep a secret diary or a private journal of notes and ideas securely on the web or Share it with Friends on the Public page to find like mineded individlas.
-Social Media Journal  
+### A free online diary and personal journal focused on privacy. Easily keep a secret diary or a private journal of notes and ideas securely on the web or Share it with Friends on the Public page to find like minded individuals..
+
+##Prerequisites :computer:
+:link:Mysql
+:link:Mysql2
+:link:Sequelize
+:link:Express-handlebars
+:link:Express
+:link:Body-parser
+:link:bcrypt-nodejs
+:link:passport
+:link:passport-local
+
+
 #Key Features
 ##Public Space
 ##Private Space
