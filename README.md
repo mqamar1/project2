@@ -32,7 +32,6 @@
 - HTML
 - css
 - markdown
-- lodash (maybe)
 - link:Mysql
 - Mysql2
 - link:Sequelize
