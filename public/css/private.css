@@ -40,3 +40,10 @@ body{
   font-family: serif;
 
 }
+.btn-primary{
+  font-weight: bold;
+  background-color:purple;
+  border-color: black;
+  align: center;
+  margin-left: 20px;  
+}
