@@ -96,6 +96,19 @@
 
 $(document).ready(function() {
 
+  $("#logout").on("click", function() {
+       $.get("/login", function(data){
+         window.location.href = "/login";
+         console.log('hh1')
+       })
+ });
+ $("#home").on("click", function() {
+   $.get("/signout", function(data){
+     window.location.href = "/signout";
+     console.log('hh1')
+   })
+});
+
   var blobs;
 var text;
 var reader = new FileReader();
