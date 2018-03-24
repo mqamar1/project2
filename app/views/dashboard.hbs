@@ -91,57 +91,261 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script type="text/javascript" src="./js/private.js"></script>
+  <!-- <script type="text/javascript" src="/js/private.js"></script> -->
 <script>
-   // This "document.ready" code isn't necessary in this example... but is useful to become familiar with.
-   // "document.ready" makes sure that our JavaScript doesn't get run until the HTML document is finished loading.
 
-   $(document).ready(function() {
-     $("#logout").on("click", function() {
+$(document).ready(function() {
+
+  var blobs;
+var text;
+var reader = new FileReader();
+var url = window.location.search;
+var postId;
+var updating = false;
+
+$('#done-button').on('click', function () {
+  var file = $('#myFile').src = window.URL.createObjectURL(curFiles[i])
+  var fileReader = new FileReader();
+    var fileType = $('#file-type').val();
+    blobUtil.imgSrcToBlob(fileType).then(function (blob) {
+
+    }).catch(function (err) {
+      // error
+    });
+  });
+});
+
+$("#jsubmit").click(function handleFormSubmit(event) {
+  // await fun1
+
+  var titleInput = $("#jtitle");
+  var entryInput = $("#jentry");
+  var linksInput = $("#jlink");
+  var shareStatus=$('input[value]:checked').val();
 
 
+  if (shareStatus == 0 || shareStatus == 1){
 
+  var newPost = {
+    title: titleInput.val().trim(),
+    journal_entry: entryInput.val().trim(),
+    links_images: linksInput.val().trim(),
+    shareStatus:$('input[value]:checked').val()
+  };
 
-       $.get("/login", function(data){
-         window.location.href = "/login";
-         console.log('hh1')
+  //
+  console.log(newPost);
+    submitPost(newPost);
 
-       })
-
- });
- $("#home").on("click", function() {
-
-
-
-
-   $.get("/signout", function(data){
-     window.location.href = "/signout";
-     console.log('hh1')
-
-   })
+  } else{
+    alert ("Please select either public or private before submiting");
+  submitPost(newPost);
+  }
 
 });
 
+function submitPost(newPost) {
+$.post("/api/private", newPost, function() {
+  // window.location.href = "/private";
 
-
+  var row = $("<div>");
+    row.addClass("myjentry");
+    row.append("<p> Titile :" + newPost.title + "</p>");
+  var deleteBtn = $("<button>");
+  deleteBtn.text("x");
+  deleteBtn.addClass("delete btn btn-danger");
+  var editBtn = $("<button>");
+  editBtn.text("EDIT");
+  editBtn.addClass("edit btn btn-default");
+    row.append(deleteBtn);
+    row.append(editBtn);
+    $("#private-Jornalarea").prepend(row);
+  alert("done")
 });
+};
+        getPosts();
+  $(document).on("click", "button.delete", handlePostDelete);
+  $(document).on("click", "button.edit", handlePostEdit);
+
+  var url = window.location.search;
+  var postId;
+
+  var updating = false;
+
+  var jornalContainer = $("#private-Jornalarea");
+
+  if (url.indexOf("?post_id=") !== -1) {
+    postId = url.split("=")[1];
+    getPostData(postId);
+  }
+
+
+
+  var titleInput = $("#jtitle");
+  var entryInput = $("#jentry");
+  var linksInput = $("#jlink");
+  var shareStatus = $('input[value]:checked').val()
+
+
+  $("#jsubmit").click(function handleFormSubmit(event) {
+    event.preventDefault();
+
+    if (!titleInput.val().trim() || !entryInput.val().trim()) {
+      return;
+    }
+
+    var //===========================================
+      newPost = {
+        title: titleInput.val().trim(),
+        journal_entry: entryInput.val().trim(),
+        links_images: linksInput.val().trim(),
+        shareStatus: $('input[value]:checked').val()
+
+      };
+
+
+
+  });
+  ///===================================================
+
+
+  function submitPost(newPost) {
+    $.post("/api/private", newPost, function() {
+      // window.location.href = "/private";
+
+
+      alert("done")
+    });
+  }
+
+
+
+
+  ///===============================================
+  // getPosts();
+
+  function getPosts(newPost) {
+    $.get("/api/private", function(data) {
+      dataBackFromDb = data;
+
+
+      initalizeRow(dataBackFromDb);
+
+    });
+  }
+
+  //
+
+  // create row function for every jornal that is created
+  function initalizeRow(dataBackFromDb) {
+
+
+
+    var jornalsToAdd = [];
+    for (var i = 0; i < dataBackFromDb.length; i++) {
+      jornalsToAdd.push(createNewRow(dataBackFromDb[i]));
+
+    }
+    jornalContainer.empty();
+    jornalContainer.append(jornalsToAdd);
+  }
+
+
+  function createNewRow(dataBackFromDb) {
+
+    console.log(dataBackFromDb)
+    var row = $("<div>");
+    row.addClass("myjentry");
+    row.append("<p> Titile :" + dataBackFromDb.title + "</p>");
+    row.append("<p> " + dataBackFromDb.journal_entry + "</p>");
+    row.append("<p> " + dataBackFromDb.links_images + "</p>");
+    var deleteBtn = $("<button>");
+    deleteBtn.text("x");
+    deleteBtn.addClass("delete btn btn-danger");
+    deleteBtn.attr("entryID", dataBackFromDb.id);
+    // console.log('deleteBtn with ID', deleteBtn)
+    var editBtn = $("<button>");
+    editBtn.text("EDIT");
+    editBtn.addClass("edit btn btn-default");
+    editBtn.attr("entryID", dataBackFromDb.id);
+    // console.log('Edit with ID', editBtn)
+    row.append(deleteBtn);
+    row.append(editBtn);
+    // row.data("dataBackFromDb", dataBackFromDb);
+    jornalContainer.append(row);
+
+    return row;
+  }
+
+
+  //---------------------------------------------------------
+
+  ///--------------????? what goes in the ()
+  function handlePostDelete() {
+
+    var currentId = $(this).attr("entryID");
+
+    deletePost(currentId);
+  }
+
+
+  // This function does an API call to delete posts
+  ///--------------????? what goes in the ()
+  function deletePost(id) {
+    // console.log(id)
+    $.ajax({
+        method: "DELETE",
+        url: "api/private/" + id
+      })
+      .then(function() {
+        getPosts() // show me posts after deleting
+
+      });
+  }
+
+  //-----------------------------------------------------
+
+  function handlePostEdit() {
+    var currentId = $(this).attr("entryID")
+
+    window.location.href = "/dashboard?post_id=" + currentId;
+    updatePost(currentId, newPost);
+  }
+
+
+
+  function updatePost(id, newPost) {
+
+    $.ajax({
+        method: "PUT",
+        url: "/api/private/",
+        data: newPost
+      })
+      .then(function() {
+        window.location.href = "/dashboard";
+      });
+  }
+
+
+  function getPostData(id) {
+    $.get("/api/private/" + id, function(data) {
+      if (data) {
+        console.log(data)
+
+        titleInput.val(data.titleInput);
+        entryInput.val(data.entryInput);
+        linksInput.val(data.linksInput);
+
+        updating = true;
+        console.log("Updating - getPost Data", updating)
+
+      }
+    });
+  }
+
+
+
+
 </script>
 </body>
 
