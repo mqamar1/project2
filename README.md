@@ -78,9 +78,7 @@
 |  ├── dashboard.hbs
 |  └── signin.hbs
 |  ├── signout.hbs
-|
-├── models
-|  └── burger.js
+
 ├── public
 |  ├── css
 |  └── html
