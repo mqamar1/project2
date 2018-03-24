@@ -54,21 +54,39 @@
 ##Architecture Diagram
 
 ```
-├── config
-|  ├── connection.js
-|  └── orm.js
+├── app
+|  ├── config
+|      └── passport
+|     |   └──passport.js
+|     |__config.json
+|      
 ├── controllers
-|  └── burgersController.js
-├── db
-|  ├── schema.sql
-|  └── seeds.sql
+|  └── authcontroller.js
+|
+├── models
+|  ├── bbamModel.js
+|  └── escapePost.js
+|  └── index.js
+|  └── user.js
+|
+├── routes
+|  ├── .DS_Store
+|  └── auth.js
+|  ├── private-api-routes.js
+|  └── public-api-routes.js
+|
+├── views
+|  ├── dashboard.hbs
+|  └── signin.hbs
+|  ├── signout.hbs
+|
 ├── models
 |  └── burger.js
 ├── public
-|  └── assets
-└── views
-|   ├── index.handlebars
-|   └── layouts
+|  ├── css
+|  └── html
+|  └── js
+|
 ├── package.json
 ├── package-lock.json
 └── server.js
