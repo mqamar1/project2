@@ -1,0 +1,42 @@
+h1{
+  font-family: serif;
+  font-style: oblique;
+	font-weight: bold;
+  text-shadow: 4px 4px 4px #aaa;
+	color:purple;
+  font-size: 100px;
+  text-align: center;
+  margin-top: -40px;
+  background-color:black;
+}
+body{
+  background-color: #B7A8BF;
+}
+
+.jumbotron-fluid{
+  background-color: black;
+}
+
+
+.journaltitle ,.journalentry{
+    font-family: serif;
+  padding-top: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color:purple;
+}
+
+.colorbutton1{
+  font-weight: bold;
+  background-color:purple;
+  border-color: black;
+  align: center;
+}
+
+.privpub{
+  font-size: 30px;
+  font-weight: bold;
+  color:purple;
+  font-family: serif;
+
+}
