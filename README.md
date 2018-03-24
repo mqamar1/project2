@@ -1,7 +1,8 @@
-# project2
+# BBAM
 
-#Project Name
-##Description
+#Project two
+
+##  A free online diary and personal journal focused on privacy. Easily keep a secret diary or a private journal of notes and ideas securely on the web or Share it with Friends on the Public page to find like mineded individlas.
 Social Media Journal
 
 #Key Features
