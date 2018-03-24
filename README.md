@@ -31,7 +31,7 @@
 - heroku
 - HTML
 - css
-- mardown
+- markdown
 - lodash (maybe)
 - link:Mysql
 - Mysql2
