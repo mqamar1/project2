@@ -155,11 +155,12 @@ function initalizeRow(dataBackFromDb){
 function createNewRow(dataBackFromDb){
   // console.log(newPost)
   // console.log("Data back from db")
-  // console.log(dataBackFromDb)
+  console.log(dataBackFromDb)
   var row = $("<div>");
   row.addClass("myjentry");
   row.append("<p> Titile :" + dataBackFromDb.title + "</p>");
   row.append("<p> "+ dataBackFromDb.journal_entry + "</p>");
+  row.append("<p> "+ dataBackFromDb.links_images + "</p>");
   var deleteBtn = $("<button>");
   deleteBtn.text("x");
   deleteBtn.addClass("delete btn btn-danger");
@@ -218,7 +219,7 @@ function handlePostEdit() {
     // .parent()
     // .parent()
     // .data("post");
-  window.location.href = "/private?post_id=" + currentId;
+  window.location.href = "/dashboard?post_id=" + currentId;
     updatePost(currentId, newPost);
 }
 
