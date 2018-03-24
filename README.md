@@ -3,7 +3,7 @@
 ### A free online diary and personal journal focused on privacy. Easily keep a secret diary or a private journal of notes and ideas securely on the web or Share it with Friends on the Public page to find like minded individuals..
 
 ## Prerequisites :computer:
-- :link: [GitHub](https://docs.npmjs.com)  
+- :link: [NPM](https://docs.npmjs.com)  
 - :link:Mysql
 - :link:Mysql2
 - :link:Sequelize
@@ -104,10 +104,10 @@ UI Mockups
 Mockup pictures go here...
 
 ##API Docs
-##get
-##post
-##update
-##delete
+- get
+- post
+- update
+- delete
 
 ##DB
 ##usr => input => public/private
@@ -117,3 +117,7 @@ go to Journal
 
 #Team Members
 ##BBAM
+[Bezawit](https://docs.npmjs.com)  
+[Mehvish](https://github.com/mqamar1)  
+[Amanuel](https://docs.npmjs.com)  
+[Brandonb](https://docs.npmjs.com)  
