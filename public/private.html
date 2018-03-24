@@ -20,6 +20,8 @@
   <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
   <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
+
+
 </head>
 
 <body>
@@ -40,52 +42,58 @@
         <div class="form">
           <form id="private">
             <div class="form-group">
-              <label for="exampleFormControlInput1" class="journaltitle">Title:</label>
+              <label for="exampleFormControlInput1" class="journaltitle">Title</label>
               <input type="" class="form-control" id="jtitle" placeholder="">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1" class="journalentry">Journal Entry:</label>
+              <label for="exampleFormControlTextarea1" class="journalentry">Journal Entry</label>
               <textarea class="form-control" id="jentry" rows="3"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="exampleFormControlTextarea1" class="journalentry">Links to Images:</label>
+              <label for="exampleFormControlTextarea1" class="journalentry">Image Links</label>
               <textarea class="form-control" id="jlink" rows="3"></textarea>
             </div>
-            <div class="form-group" >
-              <label for="sleepy" class="privpub">Make Post Private or Public?</label><br>
-              <input type="radio"class="privpub" name="Post" value= 0 /> Private Post<br/>
-              <input type="radio" class="privpub" name="Post" value= 1 /> Public <br/>
+            <div class="form-group">
+              <label for="sleepy">Post to private or Post to Public?</label><br>
+              <input type="radio" name="Post" value=0 /> Private Post!<br/>
+              <input type="radio" name="Post" value=1 /> Public <br/>
+            </div>
+            <div>
+              <button type="button" class="btn btn-info upload colorbutton1" data-toggle="modal" data-target="#uploadModal" onclick="handleFormSubmit();" id="jsubmit">Submit</button>
+
             </div>
             <div>
               <br />
             </div>
-            <div>
-              <button type="button" class="btn btn-info upload colorbutton1" data-toggle="modal" data-target="#uploadModal" onclick="handleFormSubmit();" id="jsubmit">Submit</button>
-              <div>
-                <br />
-              </div>
-            </div>
-            <div class="col-12 box">
-              <div class="card mb-3">
-              <h3 class="card-header 2" id="private-Jornalarea"></h3>
-            </div>
-            </div>
-          </form>
         </div>
+        <div class="col-8 box">
+          <div class="card mb-3">
+            <h3 class="card-header 2" id="private-Jornalarea"></h3>
+          </div>
+        </div>
+        </form>
       </div>
+    </div>
     </div>
 
 
 
 
+    <!-- <div class="form-group pp">
+        <label for="sleepy">Post to private or Post to Public?</label><br>
+        <input type="radio" name="Post" value= 0 /> Private Post!<br/>
+        <input type="radio" name="Post" value= 1 /> Public <br/>
+      </div> -->
+
+
+
+  </container>
 
 
 
 
 
-
-</container>
 
 
 
